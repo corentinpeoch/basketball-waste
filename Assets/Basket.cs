@@ -8,7 +8,7 @@ public class Basket : MonoBehaviour
 
     void OnCollisionEnter()
     {
-        audio.Play();
+        GetComponent<AudioSource>().Play();
     }
 
     void OnTriggerEnter()
