@@ -59,8 +59,8 @@ public class Shoot : MonoBehaviour
             throwSpeed.y = throwSpeed.y + arrow.transform.position.x;
             throwSpeed.z = throwSpeed.z + arrow.transform.position.x;
 
-            ballClone.rigidbody.AddForce(throwSpeed, ForceMode.Impulse);
-            audio.Play();
+            ballClone.GetComponent<Rigidbody>().AddForce(throwSpeed, ForceMode.Impulse);
+            GetComponent<AudioSource>().Play();
         }
 
         /* Remove Ball when it hits the floor */
@@ -75,7 +75,7 @@ public class Shoot : MonoBehaviour
             
             if (availableShots == 0)
             {
-                arrow.renderer.enabled = false;
+                arrow.GetComponent<Renderer>().enabled = false;
                 Instantiate(gameOver, new Vector3(0.31f, 0.2f, 0), transform.rotation);
                 Invoke("restart", 2);
             }
